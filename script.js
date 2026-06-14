@@ -10,7 +10,7 @@ const toggleActive = (e) => {
   const allQuestions = document.querySelectorAll(".question");
 
   allQuestions.forEach((q) => {
-    if (q !== target) {
+    if (q !== currentQuestion) {
       const otherButton = q.querySelector(".question__title");
       const otherContent = q.querySelector(".question__content");
 
@@ -25,4 +25,32 @@ const toggleActive = (e) => {
   questionContent.classList.toggle("question__content--active");
 };
 
+const toggleKeyboard = (e) => {
+  const target = e.target.closest(".btn");
+
+  if (!target) return null;
+
+  const currentQuestion = target.closest(".question");
+
+  if (e.key === "ArrowDown") {
+    const nextQuestion = currentQuestion.nextElementSibling;
+
+    if (nextQuestion) {
+      const newTarget = nextQuestion.querySelector(".btn");
+      newTarget.focus();
+    }
+  }
+
+  if (e.key === "ArrowUp") {
+    const prevQuestion = currentQuestion.previousElementSibling;
+
+    if (prevQuestion) {
+      const newTarget = prevQuestion.querySelector(".btn");
+      newTarget.focus();
+    }
+  }
+};
+
 questionList.addEventListener("click", toggleActive);
+
+questionList.addEventListener("keydown", toggleKeyboard);
