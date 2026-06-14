@@ -119,6 +119,12 @@ body {
   height: 32px;
 }
 
+.btn:focus-visible {
+  outline: 2px dashed hsl(281, 83%, 54%);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
