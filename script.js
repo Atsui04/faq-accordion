@@ -10,7 +10,7 @@ const toggleActive = (e) => {
   const allQuestions = document.querySelectorAll(".question");
 
   allQuestions.forEach((q) => {
-    if (q !== target) {
+    if (q !== currentQuestion) {
       const otherButton = q.querySelector(".question__title");
       const otherContent = q.querySelector(".question__content");
 
